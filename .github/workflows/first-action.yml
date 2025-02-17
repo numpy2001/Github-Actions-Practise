@@ -1,13 +1,17 @@
 name: Simple Echo Workflow
 
-
-on: worflow_dispatch
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   echo_job:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Print a message
-        run: echo "Hello from GitHub Actions!"
-      - name: Print another message
         run: echo "Hello from GitHub Actions!"
